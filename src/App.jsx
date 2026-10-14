@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Articles from './components/Articles'
-import CreateArticle from './components/CreateArticle'
 import Navbar from './components/Navbar'
+import SingleArticle from './components/SingleArticle'
 
 function App() {
   return (
@@ -10,7 +10,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Articles />} />
-        <Route path="/create" element={<CreateArticle />} />
+        <Route path="/articles/:id" element={<SingleArticle />} />
+        <Route path="/article/:id" element={<SingleArticle />} />
       </Routes>
     </BrowserRouter>
   )

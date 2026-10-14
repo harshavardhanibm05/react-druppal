@@ -104,6 +104,7 @@ function Articles() {
         {articles.map((article) => (
           <ArticleCard
             key={article.id}
+            id={article.id}
             title={article.title}
             content={article.content}
             imageUrl={article.imageUrl}

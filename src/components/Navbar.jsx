@@ -15,12 +15,6 @@ function Navbar() {
         >
           Articles
         </Link>
-        <Link
-          to="/create"
-          className={`navbar__link navbar__link--cta${pathname === '/create' ? ' navbar__link--active' : ''}`}
-        >
-          + New Article
-        </Link>
       </div>
     </nav>
   )
