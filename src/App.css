@@ -1,0 +1,332 @@
+/* ── Navbar ───────────────────────────────────────────────────── */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar__brand {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-h);
+  text-decoration: none;
+  letter-spacing: -0.2px;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__link {
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text);
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.navbar__link--cta {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 500;
+}
+
+.navbar__link--cta:hover {
+  background: var(--accent-border);
+  color: #fff;
+}
+
+/* ── Page layout ─────────────────────────────────────────────── */
+.articles-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  box-sizing: border-box;
+}
+
+.articles-header {
+  padding: 48px 0 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* ── Grid ─────────────────────────────────────────────────────── */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+/* ── Card ─────────────────────────────────────────────────────── */
+.article-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg);
+  transition: box-shadow 0.25s;
+}
+
+.article-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.article-card__image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--code-bg);
+}
+
+.article-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.article-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 24px 24px;
+  flex: 1;
+}
+
+.article-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-h);
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.article-card__content {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+  margin: 0;
+
+  /* Clamp to 4 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Status states ────────────────────────────────────────────── */
+.articles-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.articles-status--error {
+  color: #dc2626;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .articles-page {
+    padding: 0 16px 48px;
+  }
+
+  .articles-header {
+    padding: 32px 0 24px;
+    margin-bottom: 28px;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ── Create page ──────────────────────────────────────────────── */
+.create-page {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  box-sizing: border-box;
+}
+
+.create-header {
+  padding: 48px 0 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* ── Form ─────────────────────────────────────────────────────── */
+.create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+  letter-spacing: 0.1px;
+}
+
+.form-required {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-family: var(--sans);
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.form-input:disabled,
+.form-textarea:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.form-file {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.form-preview {
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  max-height: 260px;
+}
+
+.form-preview img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.form-status {
+  font-size: 14px;
+  color: var(--text);
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--code-bg);
+}
+
+.form-status--error {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────── */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.btn {
+  font-size: 15px;
+  font-family: var(--sans);
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn--primary:not(:disabled):hover {
+  box-shadow: var(--shadow);
+}
+
+.btn--secondary {
+  background: var(--social-bg);
+  color: var(--text-h);
+  border: 1px solid var(--border);
+}
+
+.btn--secondary:not(:disabled):hover {
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 640px) {
+  .create-page {
+    padding: 0 16px 48px;
+  }
+
+  .create-header {
+    padding: 32px 0 24px;
+    margin-bottom: 28px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
